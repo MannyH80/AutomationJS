@@ -1,3 +1,3 @@
-# AutomationJS
+# About Autom8
 
-Im rebuilding Autom8
+Autom8 will be a simple test management solution for my own personal projects
