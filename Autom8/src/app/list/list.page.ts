@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-list',
@@ -19,18 +20,35 @@ export class ListPage implements OnInit {
     'bluetooth',
     'build'
   ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+
+  private title: [];
+  private keySize: any;
+  constructor(private storage: Storage) {
+     
   }
 
+
+
+  public set(settingName,value){
+    return this.storage.set(`testSuite:${ settingName }`,value);
+  }
+  public async get(settingName){
+    return await this.storage.get(`testSuite:${ settingName }`);
+  }
+  public async remove(settingName){
+    return await this.storage.remove(`testSuite:${ settingName }`);
+  }
+  public async length(){
+    return await this.storage.length();
+  }
+  public clear() {
+    this.storage.clear().then(() => {
+      console.log('all keys cleared');
+    });
+  }
   ngOnInit() {
+      this.keySize = this.length();
+      console.log(this.keySize);
   }
   // add back when alpha.4 is out
   // navigate(item) {

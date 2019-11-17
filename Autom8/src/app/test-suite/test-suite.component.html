@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+        Test Suite Creation
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+      <ion-card-content>
+          <p>
+            <ion-item>
+              <ion-label>Title</ion-label>
+              <ion-input [(ngModel)]="title"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Description</ion-label>
+                <ion-textarea [(ngModel)]="description" placeholder="Enter more information here..."></ion-textarea>
+              </ion-item>
+              <ion-button expand='full' color='tertiary' (click)="set('title', title); set('description', description)">Submit</ion-button>
+          </p>
+        </ion-card-content>
+  </ion-content>
