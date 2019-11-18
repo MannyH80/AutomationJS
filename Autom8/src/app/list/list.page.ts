@@ -48,7 +48,7 @@ export class ListPage implements OnInit {
   }
   ngOnInit() {
       this.keySize = this.length();
-      console.log(this.keySize);
+      console.log(this.keySize); 
   }
   // add back when alpha.4 is out
   // navigate(item) {
